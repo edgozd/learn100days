@@ -1,8 +1,8 @@
 # study quickx in w3schools
 
-# ==========================================
+
 # 1. LIST (DANH SÁCH) - Có thể thay đổi (Mutable)
-# ==========================================
+# 
 print("--- VÍ DỤ VỀ LIST ---")
 my_list = [10, 20, 30, "Python", True]
 
@@ -26,9 +26,9 @@ last_item = my_list.pop()   # Lấy và xóa phần tử cuối cùng
 print("List sau các thao tác:", my_list)
 print("Phần tử vừa lấy ra (pop):", last_item)
 
-# ==========================================
+# 
 # 2. TUPLE (BỘ GIÁ TRỊ) - Bất biến (Immutable)
-# ==========================================
+# 
 print("\n--- VÍ DỤ VỀ TUPLE ---")
 my_tuple = (10, 20, 30, "Python")
 
@@ -44,9 +44,8 @@ print(f"Unpacking: a={a}, b={b}, c={c}, d={d}")
 print("Số lần xuất hiện của 20:", my_tuple.count(20))
 print("Vị trí (index) của 30:", my_tuple.index(30))
 
-# ==========================================
+# 
 # 3. THAO TÁC CHUNG CHO SEQUENCES (List, Tuple)
-# ==========================================
 print("\n--- THAO TÁC CHUNG ---")
 list_a = [1, 2, 3]
 tuple_a = (4, 5, 6)
