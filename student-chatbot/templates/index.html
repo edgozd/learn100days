@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Chatbot - Hỗ Trợ Sinh Viên</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="brand">
+        <div class="brand-icon">🎓</div>
+        <div>
+          <div class="brand-name">StudyBot AI</div>
+          <div class="brand-sub">Trợ lý học tập</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-body">
+      <div class="quick-topics">
+        <div class="section-label">Chủ đề phổ biến</div>
+        <button class="topic-chip" onclick="sendQuickMessage('Giải thích giúp tôi về đệ quy trong lập trình')">💻 Lập trình</button>
+        <button class="topic-chip" onclick="sendQuickMessage('Giải thích khái niệm đạo hàm trong Toán Giải Tích')">📐 Toán học</button>
+        <button class="topic-chip" onclick="sendQuickMessage('Hướng dẫn cách viết báo cáo khoa học')">📝 Báo cáo</button>
+        <button class="topic-chip" onclick="sendQuickMessage('Giải thích về cung cầu trong Kinh tế vi mô')">📊 Kinh tế</button>
+        <button class="topic-chip" onclick="sendQuickMessage('Làm thế nào để học tiếng Anh hiệu quả?')">🌐 Ngoại ngữ</button>
+        <button class="topic-chip" onclick="sendQuickMessage('Phương pháp ôn thi hiệu quả là gì?')">📚 Phương pháp học</button>
+      </div>
+    </div>
+
+    <div class="sidebar-footer">
+      <button class="btn-clear" onclick="clearChat()">
+        <span>🗑</span> Xóa hội thoại
+      </button>
+      <div class="model-badge">GPT-4o-mini · OpenAI</div>
+    </div>
+  </aside>
+
+  <!-- Main Chat Area -->
+  <main class="chat-area">
+
+    <div class="chat-header">
+      <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+      <div class="chat-title">
+        <span class="status-dot"></span>
+        Trợ lý đang hoạt động
+      </div>
+      <div class="token-display" id="token-display">— tokens</div>
+    </div>
+
+    <!-- Messages -->
+    <div class="messages" id="messages">
+      <div class="welcome-block">
+        <div class="welcome-emoji">👋</div>
+        <h2>Xin chào, mình là StudyBot!</h2>
+        <p>Mình có thể giúp bạn học lập trình, toán, kinh tế, ngoại ngữ và nhiều môn học khác. Hỏi mình bất cứ điều gì nhé!</p>
+        <div class="welcome-chips">
+          <span class="w-chip" onclick="sendQuickMessage('Tôi đang học lập trình Python, cho tôi bài tập cơ bản')">Bài tập Python</span>
+          <span class="w-chip" onclick="sendQuickMessage('Giải thích Big-O notation')">Big-O là gì?</span>
+          <span class="w-chip" onclick="sendQuickMessage('Cho tôi tips học tập hiệu quả')">Tips học tập</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input Area -->
+    <div class="input-area">
+      <div class="input-wrapper">
+        <textarea
+          id="user-input"
+          placeholder="Hỏi về bài học, bài tập, hay bất cứ điều gì…"
+          rows="1"
+          onkeydown="handleKeyDown(event)"
+          oninput="autoResize(this)"
+        ></textarea>
+        <button class="send-btn" id="send-btn" onclick="sendMessage()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </div>
+      <div class="input-hint">Enter để gửi · Shift+Enter xuống dòng</div>
+    </div>
+
+  </main>
+</div>
+
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+</body>
+</html>
